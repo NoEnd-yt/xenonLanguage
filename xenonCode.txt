@@ -1,0 +1,7 @@
+INT myInt = 12
+FLOAT myFloat = 3.5
+STR myStr = §hello world§
+BOOL firstBool = True
+BOOL secondBool = False
+MATH myInt+2
+MATH myFloat/3
