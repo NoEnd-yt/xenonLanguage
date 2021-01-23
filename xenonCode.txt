@@ -5,3 +5,13 @@ BOOL firstBool = True
 BOOL secondBool = False
 MATH myInt+2
 MATH myFloat/3
+INT mixedInt = MATH 3*4
+FLOAT mixedFloat = MATH 479/8879
+STR mixedStr = MATH 2+5
+PRINT myInt
+PRINT myStr
+PRINT MATH 1+1
+INT intInput = INPUT §hello §
+PRINT §Here is a basic program :§
+STR name = INPUT §What's your name? §
+PRINT §Hello, § name § !§
