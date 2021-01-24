@@ -162,17 +162,25 @@ def makeMath(content):
 
 def xenonPrint(content):
 	keys = list(variables.keys())
-	for i in range(len(keys)):
-		if keys[i] == content[1]:
-			content[1] = variables[keys[i]]
+	output = ''
 	if content[1] == 'MATH':
 		mathOutput = content.copy()
 		del mathOutput[:1]
 		content[1] = makeMath(mathOutput)
-	stringInput = content[1:]
-	output = ''
-	for i in range(len(stringInput)):
-		output += str(stringInput[i])
+		output = content[1]
+	elif '#' in content[1]:
+		stringInput = content[1].split('#')
+		for i in range(len(keys)):
+			for x in range(len(stringInput)):
+				if keys[i] == stringInput[x]:
+					stringInput[x] = variables[keys[i]]
+		for i in range(len(stringInput)):
+			output += stringInput[i]
+	else:
+		for i in range(len(keys)):
+			if keys[i] == content[1]:
+				content[1] = variables[keys[i]]
+		output = content[1]
 	print(output)
 
 def xenonInput(content):
@@ -194,7 +202,9 @@ for i in range(len(lines)):
 		while '' in codeLine:
 			spaceIndex = codeLine.index('')
 			del codeLine[spaceIndex]
-		codeLine.append(codeLineStr[1])
+		codeLineStr2 = codeLineStr[1:]
+		for i in range(len(codeLineStr2)):
+			codeLine.append(codeLineStr2[i])
 		print(codeLine)
 	else:
 		codeLine = lines[i].split(' ')
