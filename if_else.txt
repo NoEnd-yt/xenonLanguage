@@ -1,0 +1,10 @@
+STR name = INPUT <<What's your name? <<
+IF name == <<Isaac<<
+	PRINT <<Hi Isaac!<<
+ELIF name == <<Ruben<<
+	PRINT <<Hi Ruben!<<
+ELSE
+	PRINT <<Who are you? DIE!<<
+END
+
+PRINT <<hello #name#<<
